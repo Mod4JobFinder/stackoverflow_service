@@ -27,7 +27,7 @@
 
 ### Response for Salary Page
 
->```JSON
+>```
 >{
 >    'data': { 
 >        'id': null,
