@@ -4,4 +4,4 @@ export FLASK_APP=./stackoverflow/jobs.py
 
 source $(pipenv --venv)/bin/activate
 
-flask run -h 0.0.0.0
+flask run
