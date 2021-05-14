@@ -1,1 +1,1 @@
-web: ./bootstrap.sh
+web: python ./bootstrap.sh
