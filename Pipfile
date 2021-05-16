@@ -8,6 +8,7 @@ flask = "*"
 "pry.py" = "*"
 xmltodict = "*"
 ostruct = "*"
+gunicorn = "*"
 
 [dev-packages]
 
