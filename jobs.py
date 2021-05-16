@@ -1,10 +1,8 @@
 from flask import Flask, request
-import requests
-import json
-import xmltodict
-import html
-import re
-from ostruct import OpenStruct
+from collections import requests
+from collections import json
+from collections import xmltodict
+from collections import html
 from collections import OrderedDict
 
 app = Flask(__name__)
