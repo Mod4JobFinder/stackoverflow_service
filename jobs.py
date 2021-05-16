@@ -3,8 +3,6 @@ import requests
 import json
 import xmltodict
 import html
-import re
-from ostruct import OpenStruct
 from collections import OrderedDict
 
 app = Flask(__name__)
@@ -46,3 +44,6 @@ def create_job(job):
     'link': job['link']
   }
   })
+
+if __name__ == '__main__':
+  app.run()

@@ -1,1 +1,1 @@
-web: ./bootstrap.sh
+web: gunicorn jobs:app
