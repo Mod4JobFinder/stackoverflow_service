@@ -46,3 +46,6 @@ def create_job(job):
     'link': job['link']
   }
   })
+
+if __name__ == '__main__':
+  app.run()
