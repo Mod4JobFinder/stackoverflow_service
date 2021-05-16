@@ -9,6 +9,7 @@ flask = "*"
 xmltodict = "*"
 ostruct = "*"
 gunicorn = "*"
+requests = "*"
 
 [dev-packages]
 

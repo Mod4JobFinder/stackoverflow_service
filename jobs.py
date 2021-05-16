@@ -1,8 +1,8 @@
 from flask import Flask, request
-from collections import requests
-from collections import json
-from collections import xmltodict
-from collections import html
+import requests
+import json
+import xmltodict
+import html
 from collections import OrderedDict
 
 app = Flask(__name__)
