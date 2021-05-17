@@ -4,6 +4,8 @@ import json
 import xmltodict
 import html
 import re
+import operator
+from datetime import datetime
 from collections import OrderedDict
 
 app = Flask(__name__)
@@ -21,13 +23,17 @@ def jobs():
   results = json_raw["rss"]["channel"]["item"]
   final_json_raw = json.dumps(job_data(results), indent = 4)
   final_json = json.loads(final_json_raw)
-  
+
   return final_json
 
 def job_data(results):
   job_data = {'data': []}
-
   for job in results:
+    updated_time = datetime.strptime(job['pubDate'][:-2],'%a, %d %b %Y %H:%M:%S' )
+    job.update({'pubDate': updated_time})
+  results.sort(key = operator.itemgetter('pubDate'), reverse = True)
+  top_40 = results[:40]
+  for job in top_40:
     job_data['data'].append(create_job(job))
   return job_data
 
@@ -38,10 +44,10 @@ def create_job(job):
   'attributes': {
     'title': job['title'],
     'company': job['a10:author']['a10:name'],
-    'category': job['category'],
+    'category': job.get('category'),
     'description': clean_description(job),
     'location': job['location']['#text'],
-    'publish_date': job['pubDate'],
+    'publish_date': datetime.strftime(job['pubDate'], '%c'),
     'link': job['link']
   }
   })
