@@ -7,23 +7,27 @@ import re
 import operator
 from datetime import datetime
 from collections import OrderedDict
+
 def create_app():
   app = Flask(__name__)
 
   @app.route("/api/v1/jobs")
   def jobs():
     get_params = request.args
-    params = {'q': get_params.get('title'), 'l': get_params.get('location')}
-    req = requests.get("https://stackoverflow.com/jobs/feed", params=params)
-    to_json = xmltodict.parse(req.content)
-    cleaned = html.unescape(to_json)
-    data = json.dumps(cleaned)
-    json_raw = json.loads(data)
-    results = json_raw["rss"]["channel"]["item"]
-    final_json_raw = json.dumps(job_data(results), indent = 4)
-    final_json = json.loads(final_json_raw)
-
-    return final_json
+    if 'title' and 'location' in get_params:
+      params = {'q': get_params.get('title'), 'l': get_params.get('location')}
+      req = requests.get("https://stackoverflow.com/jobs/feed", params=params)
+      to_json = xmltodict.parse(req.content)
+      cleaned = html.unescape(to_json)
+      data = json.dumps(cleaned)
+      json_raw = json.loads(data)
+      results = json_raw["rss"]["channel"]["item"]
+      final_json_raw = json.dumps(job_data(results), indent = 4)
+      final_json = json.loads(final_json_raw)
+  
+      return final_json
+    else:
+      return '', 404
 
   def job_data(results):
     job_data = {'data': []}
