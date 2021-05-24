@@ -10,7 +10,7 @@ from collections import OrderedDict
 def create_app():
   app = Flask(__name__)
 
-  @app.route("/jobs")
+  @app.route("/api/v1/jobs")
   def jobs():
     get_params = request.args
     params = {'q': get_params.get('title'), 'l': get_params.get('location')}
