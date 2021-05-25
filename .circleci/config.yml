@@ -5,7 +5,7 @@ orbs:
   # Orb commands and jobs help you with common scripting around a language/tool
   # so you dont have to copy and paste it everywhere.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  python: circleci/python@1.2
+  python: circleci/python@1.4.0
 
 workflows:
   sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
@@ -33,7 +33,6 @@ jobs:
       - checkout
       - run:
           command: |
-                  pip install pipenv
                   pipenv install
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
