@@ -26,28 +26,19 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-
-
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">project_title</h3>
+  <h3 align="center">StackOverflow Microservice</h3>
 
   <p align="center">
-    project_description
+    Welcome to the StackOverflow Microservice for FindJob! This Flask app's purpose is to collect and expose job postings by position and location for the <a href=https://www.github.com/Mod4JobFinder/findjob-backend>FindJob backend application</a>.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Mod4JobFinder"><strong>Explore FindJob App Repositories»</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://jobfinderfe.herokuapp.com">View the JobFinder App</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://job-microservice.herokuapp.com/api/v1/jobs?title=software+engineer&location=denver,co">See a Demo of the StackOverflow Microservice</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/Mod4JobFinder/stackoverflow_microservice/issues">Report a Bug</a>
   </p>
 </p>
 
@@ -84,7 +75,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://job-microservice.herokuapp.com/jobs?location=denver,co&position=software+engineer)]
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
