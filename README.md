@@ -1,50 +1,27 @@
-### Creating/registering user
+<h1 align='center'>StackOverflow Microservice</h1>
+The Stackoverflow Microservice utilizes an RSS feed from StackOverflow Jobs to expose a job data API for the Back End Job Finder Application.
 
-> ```
-> {
->   "data": {
->     "id": "null",
->     "type": "urban_area",
->     "attributes": [
->       {
->         "id": "integer",
->         "title": "string",
->         "min_salary": "float",
->         "max_salary": "float"
->       }
->     ]
->   }
-> }
+## Versioning
+- Python 3.9.5
+- Pytest 6.2.4
+- Flask 2.0.0
 
-### Bad request or invalid credential per user post
+## Getting Started
+1. Fork and Clone this repository
+2. Run `pipenv install` to ensure packages are installed in your environment
+3. Run `pytest` to run this app's tests to ensure it is working correctly
+4. To run this application locally, run `gunicorn run:app` and follow the given address
 
-> ```
-> {
->   error: 'Bad Request for your parameter',
->   errors: "parameter is bad: #{reason}"
-> }
-
-
-### Response for Salary Page
-
->```
->{
->    'data': { 
->        'id': null,
->        'type': 'urban area'
->        'attributes': [
->            {  
->                'id': integer,
->                'title': string,
->                'min_salary': float,
->                'max_salary': float
->             }
->        ]
->     }
->}
-
+## Endpoints
 ### StackOverflow Microservice to Backend
 
+**Required** path params:
+- `location`
+- `title`
+
+*will return 404 if not provided*
+
+GET '/api/v1/jobs?location=denver,co&title=software+engineer
 > ```
 > {
 >  "data": [{
@@ -62,49 +39,3 @@
 >      {...}
 >   }]
 > }
- 
-
-### session authentication
-
->```
->{ 
->    'email': string,
->    'password': string
->}
-> 
-> status: :ok
-
-### Profile page
-
->```
->request
->
->{
->     'email': string,
->}
->
->response
->
->{
->    'data': { 
->        'id': null,
->        'type': 'user'
->        'attributes': {
->            'first_name': string,
->            'last_name': string,
->            'email': string,
->            'city': string,
->            'state': string (initial),
->            'zipcode': string,
->            'saved_jobs': [
->                {
->                    'job_title': string,
->                    'location': string,
->                    'company': string,
->                    'url': string
->                }
->            ]
->        }
->     }
->}
-
